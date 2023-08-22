@@ -19,17 +19,32 @@ There are different financial models which are used to analyse financial series,
 -  ARMA (Autoregressive Moving Average): An Autoregressive Moving Average Model is a statistical model that uses past values and past errors of a time series to predict its future behaviour.
 -  ARIMA (Autoregressive Integrated Moving Average):  An Autoregressive Integrated Moving Average Model is a generalization of an ARMA model which combines the AR and MA components and also includes an integration component, which transforms the non-stationary property to stationary property. An ARIMA model can capture various patterns and trends in time series data, such as seasonality, cyclicity or shocks. 
 
-We will evaluate these models based on their predictive accuracy, root mean square error (RMSE) on the test dataset, and their Akaike Information Criterion (AIC) on the train dataset. As AIC are methods to select a model in statistics based on its fit to the data and its complexity. They are calculated from log-likelihood and a penalty term that increases with the number of parameters in the model. And RMSE tells us the average distance between the residuals. The lower the RMSE, the better the model. Same goes for AIC . 
+We will evaluate these models based on their predictive accuracy, root mean square error (RMSE) on the test dataset, and their Akaike Information Criterion (AIC) on the train dataset. AIC and BIC are methods to select a model in statistics based on its fit to the data and its complexity. They are calculated from log-likelihood and a penalty term that increases with the number of parameters in the model. They are better than other information criteria because they have some theoretical and practical advantages.
+	Some of the advantages of AIC and BIC are:
+
+	•	They are easy to compute and interpret, as they only depend on the log-likelihood and the number of parameters of the model and can be applied to any model that has a likelihood function, regardless of the distributional assumptions or the estimation method.
+
+	•	They have asymptotic properties that guarantee their consistency and efficiency under certain conditions. They balance the trade-off between model fit and model complexity, by penalizing models that have more parameters. This helps to avoid overfitting, which is when a model fits the data too well but fails to generalize to new data.
+But in these paper as both of them produces approximately same results, so we will only use AIC .
 
 AIC = -2ln(L)  + 2k
 
 Where L is the value of the likelihood function evaluated at the parameter estimates, and k is the number of estimated parameters. 
-RMSE=√((∑_(i=1)^n▒(P_i-O_i )^2 )/n) 		,where:
+And RMSE tells us about the average distance between the residuals. The lower the RMSE, the better the model.
+ 
+ 		RMSE=√((∑_i(P_i-O_i )^2 )/n) 		i=1(1)n		
+
+,where:	
+
 Pi is the predicted value for the ith observation in the dataset.
+
 Oi is the observed value for the ith  observation in the dataset.
+
 n is the sample size
- 
-	VOLATILITY FORECASTING: -
+
+ 
+ 	VOLATILITY FORECASTING: -
+
 Volatility forecasting is a crucial aspect of financial analysis, risk management, and investment decision-making. It involves predicting the future volatility of financial assets, such as stocks, currencies, or commodities, based on historical price movements. Accurate volatility forecasts aid investors and traders in assessing market risk, constructing portfolios, and implementing hedging strategies.
 
 Various statistical and econometric models are employed for volatility forecasting, including:
